@@ -242,6 +242,10 @@ class Api
                     $fields['wallettype'] = 'PDT';
                     $narrativeTextMaxLength = 37;
                     break;
+                case Api::PAYMENT_METHOD_SOFORT:
+                    $fields['clearingtype'] = 'sb';
+                    $fields['onlinebanktransfertype'] = 'PNT';
+                    break;
                 default:
                     throw new InvalidArgumentException('Invalid payment method "' . $fields[static::FIELD_PAYMENT_METHOD] . '"');
             }
