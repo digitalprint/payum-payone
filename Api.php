@@ -73,6 +73,7 @@ class Api
     const PAYMENT_METHOD_DIRECT_DEBIT_SEPA = 'direct_debit_sepa';
     const PAYMENT_METHOD_GIROPAY = 'giropay';
     const PAYMENT_METHOD_PAYDIREKT = 'paydirekt';
+    const PAYMENT_METHOD_SOFORT = 'sofort';
 
     const STATUS_APPROVED = 'APPROVED';
     const STATUS_ERROR = 'ERROR';

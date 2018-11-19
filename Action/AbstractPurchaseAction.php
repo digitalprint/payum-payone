@@ -139,7 +139,8 @@ abstract class AbstractPurchaseAction extends GatewayAwareAction implements Gene
         return in_array($paymentMethod, [
             Api::PAYMENT_METHOD_CREDIT_CARD_PPAN,
             Api::PAYMENT_METHOD_GIROPAY,
-            Api::PAYMENT_METHOD_PAYDIREKT
+            Api::PAYMENT_METHOD_PAYDIREKT,
+            Api::PAYMENT_METHOD_SOFORT
         ], true);
     }
 
