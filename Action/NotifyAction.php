@@ -62,6 +62,15 @@ class NotifyAction extends GatewayAwareAction implements LoggerAwareInterface
 
             throw new HttpResponse('Parameter "txaction" is missing."', 400, ['Content-Type' => 'text/plain']);
         }
+        
+        if ('debit' === $postParams['txaction']) {
+            $model[Api::FIELD_STATUS] = 'refunded';
+            $model[Api::FIELD_TX_ACTION] = $postParams['txaction'];
+
+            $this->logger->info('Payment ' . $model->get('reference') . ' received debit notify. Changed status from "' . $previousStatus . '" to "' . $model[Api::FIELD_STATUS] . '"');
+
+            throw new HttpResponse('TSOK', 200, ['Content-Type' => 'text/plain']);
+        }
 
         if ('cancelation' === $postParams['txaction']) {
             $model[Api::FIELD_STATUS] = 'canceled';
